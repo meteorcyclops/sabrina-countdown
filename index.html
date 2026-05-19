@@ -15,6 +15,8 @@
         --muted: #8a6d6d;
         --accent: #e58c8c;
         --accent-2: #c96f93;
+        --leaf: #84c6a3;
+        --leaf-2: #62ae85;
         --shadow: 0 18px 50px rgba(120, 84, 84, 0.12);
       }
       * { box-sizing: border-box; }
@@ -38,6 +40,8 @@
         gap: 20px;
       }
       .hero, .note, .footer-card {
+        position: relative;
+        overflow: hidden;
         background: var(--card);
         border: 1px solid rgba(255,255,255,0.7);
         box-shadow: var(--shadow);
@@ -49,6 +53,136 @@
         padding: 28px 22px;
         text-align: center;
       }
+      .hero::before,
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border-radius: 999px;
+        pointer-events: none;
+        opacity: 0.5;
+      }
+      .hero::before {
+        top: -72px;
+        left: -44px;
+        background: radial-gradient(circle, rgba(255, 206, 221, 0.9), transparent 68%);
+      }
+      .hero::after {
+        right: -56px;
+        bottom: -90px;
+        background: radial-gradient(circle, rgba(255, 228, 185, 0.88), transparent 66%);
+      }
+      .flower-scene {
+        position: relative;
+        width: min(68vw, 260px);
+        margin: 0 auto 14px;
+        padding-top: 22px;
+      }
+      .flower {
+        position: relative;
+        width: 156px;
+        height: 196px;
+        margin: 0 auto;
+      }
+      .petal {
+        position: absolute;
+        width: 62px;
+        height: 74px;
+        left: 47px;
+        top: 14px;
+        border-radius: 56% 56% 48% 48%;
+        transform-origin: 50% 88%;
+        background: linear-gradient(180deg, #ffd7ea 0%, #ffb8d3 100%);
+        box-shadow: inset 0 -8px 14px rgba(255,255,255,0.36);
+      }
+      .petal::after {
+        content: "";
+        position: absolute;
+        inset: 10px 14px auto;
+        height: 22px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.28);
+      }
+      .petal-1 { transform: rotate(0deg) translateY(-8px); }
+      .petal-2 { transform: rotate(45deg) translateY(-8px); }
+      .petal-3 { transform: rotate(90deg) translateY(-8px); }
+      .petal-4 { transform: rotate(135deg) translateY(-8px); }
+      .petal-5 { transform: rotate(180deg) translateY(-8px); }
+      .petal-6 { transform: rotate(225deg) translateY(-8px); }
+      .petal-7 { transform: rotate(270deg) translateY(-8px); }
+      .petal-8 { transform: rotate(315deg) translateY(-8px); }
+      .flower-center {
+        position: absolute;
+        left: 50%;
+        top: 68px;
+        width: 72px;
+        height: 72px;
+        margin-left: -36px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 30%, #fff4a8, #ffc96b 70%);
+        box-shadow: 0 10px 18px rgba(255, 178, 110, 0.24);
+        z-index: 2;
+      }
+      .flower-center::before,
+      .flower-center::after {
+        content: "";
+        position: absolute;
+        top: 28px;
+        width: 7px;
+        height: 10px;
+        border-radius: 999px;
+        background: #8d5b32;
+      }
+      .flower-center::before { left: 21px; }
+      .flower-center::after { right: 21px; }
+      .smile {
+        position: absolute;
+        left: 50%;
+        top: 38px;
+        width: 28px;
+        height: 14px;
+        margin-left: -14px;
+        border-bottom: 4px solid #8d5b32;
+        border-radius: 0 0 18px 18px;
+      }
+      .stem {
+        position: absolute;
+        left: 50%;
+        top: 126px;
+        width: 10px;
+        height: 70px;
+        margin-left: -5px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, var(--leaf), var(--leaf-2));
+      }
+      .leaf {
+        position: absolute;
+        top: 146px;
+        width: 42px;
+        height: 24px;
+        background: linear-gradient(180deg, #9bddb8, #68b98e);
+      }
+      .leaf-left {
+        left: 34px;
+        border-radius: 100% 0 100% 0;
+        transform: rotate(-28deg);
+      }
+      .leaf-right {
+        right: 34px;
+        border-radius: 0 100% 0 100%;
+        transform: rotate(28deg);
+      }
+      .sparkle {
+        position: absolute;
+        font-size: 20px;
+        opacity: 0.86;
+        animation: float 3.8s ease-in-out infinite;
+      }
+      .sparkle-1 { left: 10px; top: 18px; animation-delay: 0s; }
+      .sparkle-2 { right: 14px; top: 34px; animation-delay: 1s; }
+      .sparkle-3 { left: 22px; bottom: 36px; animation-delay: 1.8s; }
+      .sparkle-4 { right: 18px; bottom: 18px; animation-delay: 2.6s; }
       .eyebrow {
         color: var(--accent-2);
         letter-spacing: 0.18em;
@@ -125,6 +259,31 @@
         font-weight: 700;
         color: var(--accent-2);
       }
+      .birthday-badge {
+        display: none;
+        margin: 20px auto 0;
+        width: fit-content;
+        max-width: 100%;
+        padding: 14px 18px;
+        border-radius: 22px;
+        background: linear-gradient(135deg, rgba(255, 221, 230, 0.95), rgba(255, 242, 204, 0.95));
+        color: #8c4f60;
+        font-weight: 700;
+        line-height: 1.7;
+        box-shadow: 0 12px 24px rgba(215, 155, 176, 0.18);
+      }
+      .birthday-mode .countdown,
+      .birthday-mode .target {
+        display: none;
+      }
+      .birthday-mode .done,
+      .birthday-mode .birthday-badge {
+        display: block;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-8px) rotate(6deg); }
+      }
       @media (min-width: 760px) {
         .page { padding: 32px 24px 80px; }
         .countdown { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -134,10 +293,33 @@
   </head>
   <body>
     <main class="page">
-      <section class="hero">
+      <section class="hero" id="heroCard">
+        <div class="flower-scene" aria-hidden="true">
+          <div class="sparkle sparkle-1">✨</div>
+          <div class="sparkle sparkle-2">🌸</div>
+          <div class="sparkle sparkle-3">💖</div>
+          <div class="sparkle sparkle-4">🌼</div>
+          <div class="flower">
+            <div class="petal petal-1"></div>
+            <div class="petal petal-2"></div>
+            <div class="petal petal-3"></div>
+            <div class="petal petal-4"></div>
+            <div class="petal petal-5"></div>
+            <div class="petal petal-6"></div>
+            <div class="petal petal-7"></div>
+            <div class="petal petal-8"></div>
+            <div class="flower-center">
+              <div class="smile"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf leaf-left"></div>
+            <div class="leaf leaf-right"></div>
+          </div>
+        </div>
+
         <div class="eyebrow">For Sabrina</div>
-        <h1>距離恬恬 40 歲，<br />還有多久？</h1>
-        <p class="lead">一個簡單、溫柔、每天都能打開看一下的小倒數。時間正在往 2026 年 5 月 18 日慢慢靠近。</p>
+        <h1 id="heroTitle">距離恬恬 40 歲，<br />還有多久？</h1>
+        <p class="lead" id="leadText">一個簡單、溫柔、每天都能打開看一下的小倒數。時間正在往 2026 年 5 月 18 日慢慢靠近。</p>
 
         <section class="countdown" aria-label="countdown timer">
           <article class="time-card">
@@ -163,7 +345,8 @@
           <span class="chip">40 歲：2026/05/18 00:00 GMT+8</span>
         </div>
 
-        <div class="done" id="doneMessage">今天就是 Sabrina 的 40 歲生日了 ❤️</div>
+        <div class="done" id="doneMessage">Sabrina，40 歲生日快樂 ❤️</div>
+        <div class="birthday-badge" id="birthdayBadge">送妳一朵可愛的小花，還有今天專屬的亮晶晶。<br />願這一年也像現在一樣，溫柔、閃亮、被好好喜歡。</div>
       </section>
 
     </main>
@@ -175,6 +358,10 @@
       const minutesEl = document.getElementById('minutes');
       const secondsEl = document.getElementById('seconds');
       const doneEl = document.getElementById('doneMessage');
+      const heroCard = document.getElementById('heroCard');
+      const heroTitle = document.getElementById('heroTitle');
+      const leadText = document.getElementById('leadText');
+      const birthdayBadge = document.getElementById('birthdayBadge');
 
       function renderCountdown() {
         const now = Date.now();
@@ -185,10 +372,18 @@
           hoursEl.textContent = '0';
           minutesEl.textContent = '0';
           secondsEl.textContent = '0';
+          heroCard.classList.add('birthday-mode');
+          heroTitle.innerHTML = '恬恬，<br />40 歲生日快樂';
+          leadText.textContent = '倒數已經走完了，現在是生日當天的小小慶祝頁。';
           doneEl.style.display = 'block';
+          birthdayBadge.style.display = 'block';
+          document.title = 'Sabrina 40 歲生日快樂';
           return;
         }
 
+        heroCard.classList.remove('birthday-mode');
+        heroTitle.innerHTML = '距離恬恬 40 歲，<br />還有多久？';
+        document.title = 'Sabrina 40 倒數';
         const day = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hour = Math.floor((diff / (1000 * 60 * 60)) % 24);
         const minute = Math.floor((diff / (1000 * 60)) % 60);
