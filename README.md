@@ -9,4 +9,4 @@ A simple static countdown site for Sabrina's 40th birthday.
 
 ## Deploy
 
-Can be deployed to GitHub Pages and mapped to `sabrina.koxuan.com`.
+Deployed to GitHub Pages and mapped to `sabrina.xuan.tw`.
