@@ -1,11 +1,14 @@
 # sabrina-countdown
 
-A simple static countdown site for Sabrina's 40th birthday.
+A shared birthday countdown for Sabrina (恬恬) and Xuan, preserving the original flower and pastel design.
 
-## Target
+## Birthdays
 
-- Birthday: 1986-05-18
-- 40th birthday countdown target: 2026-05-18 00:00 GMT+8
+- Sabrina: 1986-05-18; 40th birthday: 2026-05-18.
+- Xuan: 1988-11-04; 40th birthday: 2028-11-04.
+- Each card counts down to the person's next birthday. Celebration lasts for the whole birthday in Taiwan (UTC+8), then rolls over to the next year.
+- The 40th birthday milestone remains visible after it has passed.
+- Desktop shows the cards side by side; mobile stacks them vertically.
 
 ## Deploy
 

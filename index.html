@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sabrina 40 歲生日倒數網站" />
-    <title>Sabrina 40 倒數</title>
+    <meta name="description" content="恬恬與 Xuan 的生日倒數，一起迎接下一歲，也記下我們的 40 歲里程碑。" />
+    <title>恬恬 & Xuan｜我們的生日倒數</title>
     <style>
       :root {
         --bg: #fff8f7;
@@ -289,11 +289,42 @@
         .countdown { grid-template-columns: repeat(4, minmax(0, 1fr)); }
         .hero { padding: 42px 34px; }
       }
+
+      .page { max-width: 1100px; }
+      .intro { padding-bottom: 32px; }
+      .intro h1 { font-size: clamp(32px, 7vw, 56px); line-height: 1.2; }
+      .intro .flower-scene { margin-bottom: 4px; }
+      .people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+      .person-card { padding: 28px 24px; border-top: 4px solid #e7a4bd; }
+      .person-card h2 { margin: 12px 0 8px; font-size: clamp(28px, 5vw, 36px); line-height: 1.3; letter-spacing: -.03em; }
+      .person-card .lead { font-size: 14px; min-height: 50px; }
+      .person-card .countdown { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+      .person-card .time-card { padding: 16px 4px; border-radius: 16px; }
+      .person-card .time-value { font-size: clamp(26px, 3.8vw, 40px); font-variant-numeric: tabular-nums; }
+      .person-card .time-label { font-size: 12px; }
+      .person-card .chip { padding: 9px 12px; font-size: 13px; }
+      .xuan { border-top-color: #a4c2bc; }
+      .xuan .eyebrow { color: #477f76; }
+      .xuan .chip { background: #e8f2ed; color: #477268; }
+      .milestone { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+      .milestone h3 { margin: 0 0 8px; font-size: 16px; }
+      .milestone p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+      .milestone strong { color: var(--text); }
+      .birthday-badge { font-size: 15px; }
+      .birthday-mode .target { display: flex; }
+      .page-footer { text-align: center; color: var(--muted); font-size: 13px; line-height: 1.8; }
+      @media (max-width: 759px) {
+        .people { grid-template-columns: 1fr; }
+        .person-card { padding: 26px 18px; }
+        .person-card .time-value { font-size: clamp(24px, 7vw, 40px); }
+        .person-card .lead { min-height: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) { .sparkle { animation: none; } }
     </style>
   </head>
   <body>
     <main class="page">
-      <section class="hero" id="heroCard">
+      <header class="hero intro">
         <div class="flower-scene" aria-hidden="true">
           <div class="sparkle sparkle-1">✨</div>
           <div class="sparkle sparkle-2">🌸</div>
@@ -317,86 +348,106 @@
           </div>
         </div>
 
-        <div class="eyebrow">For Sabrina</div>
-        <h1 id="heroTitle">距離恬恬 40 歲，<br />還有多久？</h1>
-        <p class="lead" id="leadText">一個簡單、溫柔、每天都能打開看一下的小倒數。時間正在往 2026 年 5 月 18 日慢慢靠近。</p>
 
-        <section class="countdown" aria-label="countdown timer">
-          <article class="time-card">
-            <div class="time-value" id="days">0</div>
-            <div class="time-label">天</div>
-          </article>
-          <article class="time-card">
-            <div class="time-value" id="hours">0</div>
-            <div class="time-label">小時</div>
-          </article>
-          <article class="time-card">
-            <div class="time-value" id="minutes">0</div>
-            <div class="time-label">分鐘</div>
-          </article>
-          <article class="time-card">
-            <div class="time-value" id="seconds">0</div>
-            <div class="time-label">秒</div>
-          </article>
+        <div class="eyebrow">For Sabrina & Xuan</div>
+        <h1>我們的生日倒數</h1>
+        <p class="lead">兩個生日，兩份期待。<br />一起數著日子，慢慢迎接下一歲。🌸</p>
+      </header>
+
+      <div class="people">
+        <section class="hero person-card" id="sabrina-card" aria-labelledby="sabrina-title">
+          <div class="eyebrow">Sabrina · 05 / 18</div>
+          <h2 id="sabrina-title">恬恬</h2>
+          <p class="lead" id="sabrina-lead">下一個生日，值得再期待一次。</p>
+          <div class="countdown" role="timer" aria-label="恬恬的生日倒數" aria-live="off">
+    <div class="time-card"><div class="time-value" id="sabrina-days">—</div><div class="time-label">天</div></div>
+    <div class="time-card"><div class="time-value" id="sabrina-hours">—</div><div class="time-label">小時</div></div>
+    <div class="time-card"><div class="time-value" id="sabrina-minutes">—</div><div class="time-label">分鐘</div></div>
+    <div class="time-card"><div class="time-value" id="sabrina-seconds">—</div><div class="time-label">秒</div></div>
+  </div>
+          <div class="target">
+            <span class="chip">生日：1986/05/18</span>
+            <span class="chip" id="sabrina-next">下一次生日：05/18</span>
+          </div>
+          <div class="birthday-badge" id="sabrina-celebration" role="status">送妳一朵可愛的小花，還有今天專屬的亮晶晶。<br />願新的一歲，溫柔、閃亮、被好好喜歡。🌸</div>
+          <div class="milestone">
+            <h3>恬恬的 40 歲里程碑 🌸</h3>
+            <p id="sabrina-milestone">2026/05/18 · 40 歲生日</p>
+          </div>
         </section>
 
-        <div class="target">
-          <span class="chip">生日：1986/05/18</span>
-          <span class="chip">40 歲：2026/05/18 00:00 GMT+8</span>
-        </div>
+        <section class="hero person-card xuan" id="xuan-card" aria-labelledby="xuan-title">
+          <div class="eyebrow">Xuan · 11 / 04</div>
+          <h2 id="xuan-title">Xuan</h2>
+          <p class="lead" id="xuan-lead">我的生日，也一起倒數 XD</p>
+          <div class="countdown" role="timer" aria-label="Xuan 的生日倒數" aria-live="off">
+    <div class="time-card"><div class="time-value" id="xuan-days">—</div><div class="time-label">天</div></div>
+    <div class="time-card"><div class="time-value" id="xuan-hours">—</div><div class="time-label">小時</div></div>
+    <div class="time-card"><div class="time-value" id="xuan-minutes">—</div><div class="time-label">分鐘</div></div>
+    <div class="time-card"><div class="time-value" id="xuan-seconds">—</div><div class="time-label">秒</div></div>
+  </div>
+          <div class="target">
+            <span class="chip">生日：1988/11/04</span>
+            <span class="chip" id="xuan-next">下一次生日：11/04</span>
+          </div>
+          <div class="birthday-badge" id="xuan-celebration" role="status">今天輪到我當壽星 XD<br />願新的一歲，多一點快樂，多一點喜歡的日常。🎂</div>
+          <div class="milestone">
+            <h3>Xuan 的 40 歲里程碑 🎂</h3>
+            <p id="xuan-milestone">2028/11/04 · 40 歲生日</p>
+          </div>
+        </section>
+      </div>
 
-        <div class="done" id="doneMessage">Sabrina，40 歲生日快樂 ❤️</div>
-        <div class="birthday-badge" id="birthdayBadge">送妳一朵可愛的小花，還有今天專屬的亮晶晶。<br />願這一年也像現在一樣，溫柔、閃亮、被好好喜歡。</div>
-      </section>
+      <footer class="page-footer">一人一個倒數，生日快樂也要一人一份。<br />以台灣時間（UTC+8）迎接生日。</footer>
+    </main>    <script>
+      const people = [
+        { id: 'sabrina', name: '恬恬', year: 1986, month: 5, day: 18 },
+        { id: 'xuan', name: 'Xuan', year: 1988, month: 11, day: 4 }
+      ];
+      const DAY = 86400000;
+      const pad = value => String(value).padStart(2, '0');
+      const dateLabel = (year, person) => year + '/' + pad(person.month) + '/' + pad(person.day);
+      const birthdayTime = (year, person) => Date.parse(year + '-' + pad(person.month) + '-' + pad(person.day) + 'T00:00:00+08:00');
 
-    </main>
+      // Derive the calendar date in Taiwan even when the visitor is overseas.
+      function birthdayState(person, now) {
+        const taiwan = new Date(now + 8 * 60 * 60 * 1000);
+        const year = taiwan.getUTCFullYear();
+        const today = taiwan.getUTCMonth() + 1 === person.month && taiwan.getUTCDate() === person.day;
+        const thisBirthday = birthdayTime(year, person);
+        const nextYear = now < thisBirthday || today ? year : year + 1;
+        const diff = Math.max(0, birthdayTime(nextYear, person) - now);
+        return { today, nextYear, age: nextYear - person.year, diff };
+      }
 
-    <script>
-      const targetDate = new Date('2026-05-18T00:00:00+08:00').getTime();
-      const daysEl = document.getElementById('days');
-      const hoursEl = document.getElementById('hours');
-      const minutesEl = document.getElementById('minutes');
-      const secondsEl = document.getElementById('seconds');
-      const doneEl = document.getElementById('doneMessage');
-      const heroCard = document.getElementById('heroCard');
-      const heroTitle = document.getElementById('heroTitle');
-      const leadText = document.getElementById('leadText');
-      const birthdayBadge = document.getElementById('birthdayBadge');
-
-      function renderCountdown() {
-        const now = Date.now();
-        const diff = targetDate - now;
-
-        if (diff <= 0) {
-          daysEl.textContent = '0';
-          hoursEl.textContent = '0';
-          minutesEl.textContent = '0';
-          secondsEl.textContent = '0';
-          heroCard.classList.add('birthday-mode');
-          heroTitle.innerHTML = '恬恬，<br />40 歲生日快樂';
-          leadText.textContent = '倒數已經走完了，現在是生日當天的小小慶祝頁。';
-          doneEl.style.display = 'block';
-          birthdayBadge.style.display = 'block';
-          document.title = 'Sabrina 40 歲生日快樂';
-          return;
-        }
-
-        heroCard.classList.remove('birthday-mode');
-        heroTitle.innerHTML = '距離恬恬 40 歲，<br />還有多久？';
-        document.title = 'Sabrina 40 倒數';
-        const day = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hour = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minute = Math.floor((diff / (1000 * 60)) % 60);
-        const second = Math.floor((diff / 1000) % 60);
-
-        daysEl.textContent = String(day);
-        hoursEl.textContent = String(hour).padStart(2, '0');
-        minutesEl.textContent = String(minute).padStart(2, '0');
-        secondsEl.textContent = String(second).padStart(2, '0');
+      function renderCountdown(now = Date.now()) {
+        people.forEach(person => {
+          const state = birthdayState(person, now);
+          const get = suffix => document.getElementById(person.id + '-' + suffix);
+          get('card').classList.toggle('birthday-mode', state.today);
+          const title = state.today ? person.name + '，' + state.age + ' 歲生日快樂！' : person.name + (person.id === 'xuan' ? ' 的 ' : '的 ') + state.age + ' 歲倒數';
+          if (get('title').textContent !== title) get('title').textContent = title;
+          get('lead').textContent = state.today ? '今天是你的日子，好好許個願吧。' : '距離 ' + dateLabel(state.nextYear, person) + '，還有⋯';
+          get('next').textContent = (state.today ? '今天生日：' : '下一次生日：') + dateLabel(state.nextYear, person);
+          const values = [Math.floor(state.diff / DAY), Math.floor(state.diff / 3600000) % 24, Math.floor(state.diff / 60000) % 60, Math.floor(state.diff / 1000) % 60];
+          ['days', 'hours', 'minutes', 'seconds'].forEach((unit, i) => get(unit).textContent = i === 0 ? String(values[i]) : pad(values[i]));
+          const forty = birthdayTime(person.year + 40, person);
+          const milestone = get('milestone');
+          if (now < forty) {
+            milestone.textContent = dateLabel(person.year + 40, person) + ' · 距離 40 歲還有 ' + Math.ceil((forty - now) / DAY) + ' 天 XD';
+          } else if (now < forty + DAY) {
+            milestone.textContent = '就是今天！40 歲生日快樂 🎉';
+          } else {
+            milestone.textContent = dateLabel(person.year + 40, person) + ' · 已迎接 40 歲，繼續收集每一歲的快樂。';
+          }
+        });
       }
 
       renderCountdown();
-      setInterval(renderCountdown, 1000);
+      setInterval(() => renderCountdown(), 1000);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) renderCountdown();
+      });
     </script>
   </body>
 </html>
