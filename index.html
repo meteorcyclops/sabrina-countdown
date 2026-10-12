@@ -1,401 +1,31 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="恬恬與 Xuan 的生日倒數，一起迎接下一歲，也記下我們的 40 歲里程碑。" />
-    <title>恬恬 & Xuan｜我們的生日倒數</title>
-    <style>
-      :root {
-        --bg: #fffaf0;
-        --bg-2: #fff0e9;
-        --card: rgba(255, 255, 255, 0.76);
-        --line: rgba(110, 70, 70, 0.12);
-        --text: #3b2c2c;
-        --muted: #806161;
-        --accent: #e58c8c;
-        --accent-2: #c96f93;
-        --leaf: #84c6a3;
-        --leaf-2: #62ae85;
-        --shadow: 0 18px 50px rgba(120, 84, 84, 0.12);
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        color: var(--text);
-        font-family: "Microsoft JhengHei", "PingFang TC", "Segoe UI", sans-serif;
-        background:
-          radial-gradient(circle at top left, rgba(229, 140, 140, 0.22), transparent 28%),
-          radial-gradient(circle at 85% 8%, rgba(201, 111, 147, 0.16), transparent 24%),
-          linear-gradient(180deg, var(--bg), var(--bg-2));
-      }
-      .page {
-        min-height: 100vh;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 24px 18px 64px;
-        display: grid;
-        align-content: center;
-        gap: 20px;
-      }
-      .hero, .note, .footer-card {
-        position: relative;
-        overflow: hidden;
-        background: var(--card);
-        border: 1px solid rgba(255,255,255,0.7);
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-radius: 28px;
-      }
-      .hero {
-        padding: 28px 22px;
-        text-align: center;
-      }
-      .hero::before,
-      .hero::after {
-        content: "";
-        position: absolute;
-        width: 180px;
-        height: 180px;
-        border-radius: 999px;
-        pointer-events: none;
-        opacity: 0.5;
-      }
-      .hero::before {
-        top: -72px;
-        left: -44px;
-        background: radial-gradient(circle, rgba(255, 206, 221, 0.9), transparent 68%);
-      }
-      .hero::after {
-        right: -56px;
-        bottom: -90px;
-        background: radial-gradient(circle, rgba(255, 228, 185, 0.88), transparent 66%);
-      }
-      .flower-scene {
-        position: relative;
-        width: min(68vw, 260px);
-        margin: 0 auto 14px;
-        padding-top: 22px;
-      }
-      .flower {
-        position: relative;
-        width: 156px;
-        height: 196px;
-        margin: 0 auto;
-      }
-      .petal {
-        position: absolute;
-        width: 62px;
-        height: 74px;
-        left: 47px;
-        top: 14px;
-        border-radius: 56% 56% 48% 48%;
-        transform-origin: 50% 88%;
-        background: linear-gradient(180deg, #ffd7ea 0%, #ffb8d3 100%);
-        box-shadow: inset 0 -8px 14px rgba(255,255,255,0.36);
-      }
-      .petal::after {
-        content: "";
-        position: absolute;
-        inset: 10px 14px auto;
-        height: 22px;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.28);
-      }
-      .petal-1 { transform: rotate(0deg) translateY(-8px); }
-      .petal-2 { transform: rotate(45deg) translateY(-8px); }
-      .petal-3 { transform: rotate(90deg) translateY(-8px); }
-      .petal-4 { transform: rotate(135deg) translateY(-8px); }
-      .petal-5 { transform: rotate(180deg) translateY(-8px); }
-      .petal-6 { transform: rotate(225deg) translateY(-8px); }
-      .petal-7 { transform: rotate(270deg) translateY(-8px); }
-      .petal-8 { transform: rotate(315deg) translateY(-8px); }
-      .flower-center {
-        position: absolute;
-        left: 50%;
-        top: 68px;
-        width: 72px;
-        height: 72px;
-        margin-left: -36px;
-        border-radius: 50%;
-        background: radial-gradient(circle at 35% 30%, #fff4a8, #ffc96b 70%);
-        box-shadow: 0 10px 18px rgba(255, 178, 110, 0.24);
-        z-index: 2;
-      }
-      .flower-center::before,
-      .flower-center::after {
-        content: "";
-        position: absolute;
-        top: 28px;
-        width: 7px;
-        height: 10px;
-        border-radius: 999px;
-        background: #8d5b32;
-      }
-      .flower-center::before { left: 21px; }
-      .flower-center::after { right: 21px; }
-      .smile {
-        position: absolute;
-        left: 50%;
-        top: 38px;
-        width: 28px;
-        height: 14px;
-        margin-left: -14px;
-        border-bottom: 4px solid #8d5b32;
-        border-radius: 0 0 18px 18px;
-      }
-      .stem {
-        position: absolute;
-        left: 50%;
-        top: 126px;
-        width: 10px;
-        height: 70px;
-        margin-left: -5px;
-        border-radius: 999px;
-        background: linear-gradient(180deg, var(--leaf), var(--leaf-2));
-      }
-      .leaf {
-        position: absolute;
-        top: 146px;
-        width: 42px;
-        height: 24px;
-        background: linear-gradient(180deg, #9bddb8, #68b98e);
-      }
-      .leaf-left {
-        left: 34px;
-        border-radius: 100% 0 100% 0;
-        transform: rotate(-28deg);
-      }
-      .leaf-right {
-        right: 34px;
-        border-radius: 0 100% 0 100%;
-        transform: rotate(28deg);
-      }
-      .sparkle {
-        position: absolute;
-        font-size: 20px;
-        opacity: 0.86;
-        animation: float 3.8s ease-in-out infinite;
-      }
-      .sparkle-1 { left: 10px; top: 18px; animation-delay: 0s; }
-      .sparkle-2 { right: 14px; top: 34px; animation-delay: 1s; }
-      .sparkle-3 { left: 22px; bottom: 36px; animation-delay: 1.8s; }
-      .sparkle-4 { right: 18px; bottom: 18px; animation-delay: 2.6s; }
-      .eyebrow {
-        color: var(--accent-2);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        font-size: 12px;
-        font-weight: 700;
-      }
-      h1 {
-        margin: 14px 0 10px;
-        font-size: clamp(34px, 9vw, 72px);
-        line-height: 0.98;
-        letter-spacing: -0.04em;
-      }
-      .lead {
-        margin: 0 auto;
-        max-width: 34rem;
-        color: var(--muted);
-        line-height: 1.8;
-        font-size: 16px;
-      }
-      .countdown {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-        margin-top: 24px;
-      }
-      .time-card {
-        padding: 18px 12px;
-        border-radius: 22px;
-        background: rgba(255,255,255,0.78);
-        border: 1px solid var(--line);
-      }
-      .time-value {
-        font-size: clamp(28px, 8vw, 54px);
-        font-weight: 800;
-        letter-spacing: -0.04em;
-      }
-      .time-label {
-        margin-top: 6px;
-        color: var(--muted);
-        font-size: 14px;
-      }
-      .target {
-        margin-top: 22px;
-        display: inline-flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-      }
-      .chip {
-        border-radius: 999px;
-        padding: 10px 14px;
-        background: rgba(229, 140, 140, 0.12);
-        color: #a95959;
-        font-weight: 700;
-        font-size: 14px;
-      }
-      .note, .footer-card {
-        padding: 18px 20px;
-      }
-      .note h2, .footer-card h2 {
-        margin: 0 0 10px;
-        font-size: 18px;
-      }
-      .note p, .footer-card p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.8;
-      }
-      .done {
-        margin-top: 20px;
-        display: none;
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--accent-2);
-      }
-      .birthday-badge {
-        display: none;
-        margin: 20px auto 0;
-        width: fit-content;
-        max-width: 100%;
-        padding: 14px 18px;
-        border-radius: 22px;
-        background: linear-gradient(135deg, rgba(255, 221, 230, 0.95), rgba(255, 242, 204, 0.95));
-        color: #8c4f60;
-        font-weight: 700;
-        line-height: 1.7;
-        box-shadow: 0 12px 24px rgba(215, 155, 176, 0.18);
-      }
-      .birthday-mode .countdown,
-      .birthday-mode .target {
-        display: none;
-      }
-      .birthday-mode .done,
-      .birthday-mode .birthday-badge {
-        display: block;
-      }
-      @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-8px) rotate(6deg); }
-      }
-      @media (min-width: 760px) {
-        .page { padding: 32px 24px 80px; }
-        .countdown { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .hero { padding: 42px 34px; }
-      }
-
-      .page { max-width: 1100px; }
-      .intro { padding-bottom: 32px; }
-      .intro h1 { font-size: clamp(32px, 7vw, 56px); line-height: 1.2; }
-      .intro .flower-scene { margin-bottom: 4px; }
-      .people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-      .person-card { padding: 28px 24px; border-top: 4px solid #e7a4bd; }
-      .person-card h2 { margin: 12px 0 8px; font-size: clamp(28px, 5vw, 36px); line-height: 1.3; letter-spacing: -.03em; }
-      .person-card .lead { font-size: 14px; min-height: 50px; }
-      .person-card .countdown { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
-      .person-card .time-card { padding: 16px 4px; border-radius: 16px; }
-      .person-card .time-value { font-size: clamp(26px, 3.8vw, 40px); font-variant-numeric: tabular-nums; }
-      .person-card .time-label { font-size: 12px; }
-      .person-card .chip { padding: 9px 12px; font-size: 13px; }
-      .xuan { border-top-color: #a4c2bc; }
-      .xuan .eyebrow { color: #477f76; }
-      .xuan .chip { background: #e8f2ed; color: #477268; }
-      .milestone { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
-      .milestone h3 { margin: 0 0 8px; font-size: 16px; }
-      .milestone p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
-      .milestone strong { color: var(--text); }
-      .birthday-badge { font-size: 15px; }
-      .birthday-mode .target { display: flex; }
-      .page-footer { text-align: center; color: var(--muted); font-size: 13px; line-height: 1.8; }
-      @media (max-width: 759px) {
-        .people { grid-template-columns: 1fr; }
-        .person-card { padding: 26px 18px; }
-        .person-card .time-value { font-size: clamp(24px, 7vw, 40px); }
-        .person-card .lead { min-height: 0; }
-      }
-      @media (prefers-reduced-motion: reduce) { .sparkle { animation: none; } }
-      /* Little paper keepsakes, warm pastels, and just enough birthday nonsense. */
-      body { background:
-        radial-gradient(circle, rgba(185, 125, 105, .12) 1px, transparent 1px) 0 0 / 22px 22px,
-        radial-gradient(ellipse at top left, #ffe1e4, transparent 50%),
-        linear-gradient(180deg, var(--bg), var(--bg-2)); }
-      .hero { border: 1px solid #efd9d1; background: rgba(255, 253, 248, .94); }
-      .intro { padding-top: 24px; }
-      .intro h1 { margin-top: 16px; }
-      .flower-center { background:
-        radial-gradient(ellipse at 20% 61%, #f4a29b 0 7%, transparent 8%),
-        radial-gradient(ellipse at 80% 61%, #f4a29b 0 7%, transparent 8%),
-        radial-gradient(circle at 35% 30%, #fff4a8, #ffc96b 70%); }
-      .flower-caption { position: relative; display: inline-block; margin: 0 auto 14px; padding: 8px 16px; border: 1px solid #ead6bb; border-radius: 16px 16px 16px 4px; background: #fff3d8; color: #87613c; font-size: 13px; transform: rotate(-3deg); }
-      .intro .eyebrow { font-size: 11px; color: #a26673; }
-      .person-card { overflow: hidden; border-top: 4px solid #e7a4bd; box-shadow: 0 12px 28px rgba(145, 105, 88, .1); }
-      .xuan { border-top-color: #a4c2bc; }
-      .card-sticker { display: inline-block; margin-bottom: 14px; padding: 7px 14px; border: 1px dashed #dca2b2; border-radius: 12px; background: #fff0f1; font-size: 12px; color: #915163; transform: rotate(-3deg); }
-      .xuan .card-sticker { background: #eef6e9; border-color: #a3bf9c; color: #557950; transform: rotate(3deg); }
-      .time-card { background: #fff9ed; border-color: #eadcc7; box-shadow: 0 3px 0 #f1e4d3; }
-      .xuan .time-card { background: #f3f8ef; border-color: #dce7d2; box-shadow: 0 3px 0 #e8eedf; }
-      .card-aside { margin: 20px 0 0; color: #92735a; font-size: 13px; line-height: 1.8; }
-      .memory-link { position: relative; display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 14px; align-items: center; margin: 4px 0 28px; padding: 15px 14px; border: 1px solid #e8ccb1; border-radius: 18px; background: #fff3dd; color: #694a3d; text-align: left; text-decoration: none; box-shadow: 0 5px 0 #f0dfca; transform: rotate(-1deg); transition: transform .2s, box-shadow .2s; }
-      .memory-link::before { content: ''; position: absolute; width: 68px; height: 20px; left: calc(50% - 34px); top: -10px; border: 1px solid rgba(209, 164, 136, .22); background: rgba(245, 214, 181, .75); transform: rotate(4deg); }
-      .memory-link:hover { transform: rotate(0deg) translateY(-3px); box-shadow: 0 8px 0 #f0dfca; }
-      .memory-link:active { transform: translateY(2px); box-shadow: 0 2px 0 #f0dfca; }
-      .memory-link:focus-visible { outline: 3px solid #9a5573; outline-offset: 6px; }
-      .memory-art { display: block; width: 92px; height: 98px; padding: 5px 5px 16px; border: 1px solid #dfcfc3; background: white; box-shadow: 0 3px 8px rgba(130, 94, 67, .1); transform: rotate(-5deg); }
-      .memory-copy { min-width: 0; }
-      .memory-label { display: block; margin-bottom: 7px; color: #986044; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
-      .memory-title { display: block; font-size: 18px; font-weight: 800; line-height: 1.5; }
-      .memory-caption { display: block; margin-top: 5px; color: #89694f; font-size: 12px; line-height: 1.7; }
-      .memory-cta { display: block; margin-top: 9px; color: #8c4860; font-size: 12px; font-weight: 700; line-height: 1.6; }
-      .memory-footnote { margin: -16px 0 22px; font-size: 11px; color: #897160; line-height: 1.7; }
-      .milestone { border-top-style: dashed; }
-      .page-footer { padding-top: 8px; }
-      @media (max-width: 380px) { .memory-link { grid-template-columns: 72px minmax(0, 1fr); gap: 10px; padding: 14px 10px; } .memory-art { width: 72px; height: 84px; } .memory-title { font-size: 16px; } }
-      @media (prefers-reduced-motion: reduce) { .memory-link { transition: none; } }
-    </style>
-  </head>
-  <body>
-    <main class="page">
-      <header class="hero intro">
-        <div class="flower-scene" aria-hidden="true">
-          <div class="sparkle sparkle-1">✨</div>
-          <div class="sparkle sparkle-2">🌸</div>
-          <div class="sparkle sparkle-3">💖</div>
-          <div class="sparkle sparkle-4">🌼</div>
-          <div class="flower">
-            <div class="petal petal-1"></div>
-            <div class="petal petal-2"></div>
-            <div class="petal petal-3"></div>
-            <div class="petal petal-4"></div>
-            <div class="petal petal-5"></div>
-            <div class="petal petal-6"></div>
-            <div class="petal petal-7"></div>
-            <div class="petal petal-8"></div>
-            <div class="flower-center">
-              <div class="smile"></div>
-            </div>
-            <div class="stem"></div>
-            <div class="leaf leaf-left"></div>
-            <div class="leaf leaf-right"></div>
-          </div>
-        </div>
-
-
-        <div class="flower-caption">別催，我有在長大。🌱</div>
-        <div class="eyebrow">For Sabrina & Xuan</div>
-        <h1>我們的生日倒數</h1>
-        <p class="lead">長大可以慢慢來，蛋糕請準時。<br />兩個生日都要記，兩份蛋糕都要吃。🎂</p>
-      </header>
-
-      <div class="people">
-        <section class="hero person-card" id="sabrina-card" aria-labelledby="sabrina-title">
-          <a class="memory-link" href="https://taitung.xuan.tw/" target="_blank" rel="noopener noreferrer" aria-label="那年台東，我有到場！開啟恬恬的台東慶生回憶網站（新分頁）">
-            <svg class="memory-art" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#b7472f"><meta name="description" content="恬恬與 Xuan 的生日剪貼簿。長大可以慢慢來，蛋糕請準時。"><title>恬恬 & Xuan｜我們的生日剪貼簿</title>
+<style>
+:root{--ink:#302c26;--paper:#f7f1df;--red:#b7472f;--green:#45654f;--muted:#72685c;--line:#d3c7ad}*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:"Microsoft JhengHei","PingFang TC",sans-serif;background:#eae2d0;background-image:repeating-linear-gradient(0deg,transparent 0 3px,#80613c05 3px 4px)}a{color:inherit} .page{max-width:1240px;margin:auto;padding:26px 38px 30px}.masthead{display:flex;align-items:center;justify-content:space-between;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);padding:12px 0;font-family:Georgia,serif;font-size:13px;letter-spacing:.14em}.masthead b{font-weight:400}.masthead span{font-family:monospace;font-size:10px;letter-spacing:.1em}.intro{position:relative;isolation:isolate;display:grid;grid-template-columns:1.5fr 1fr;align-items:center;gap:24px;margin:24px 0 42px;padding:46px 46px 40px;background:var(--red);color:var(--paper);box-shadow:2px 5px 0 #35221720;overflow:hidden}.intro:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.25;background:repeating-linear-gradient(-8deg,transparent 0 26px,#512b2450 27px 28px),repeating-linear-gradient(91deg,transparent 0 3px,#fff1d818 4px 5px)}.intro:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:9px;background:#eae2d0;clip-path:polygon(0 70%,2% 20%,4% 60%,7% 10%,11% 65%,15% 30%,19% 75%,23% 20%,28% 60%,32% 10%,36% 55%,42% 25%,47% 70%,52% 20%,58% 60%,63% 10%,68% 65%,73% 25%,79% 70%,84% 20%,89% 60%,94% 15%,98% 65%,100% 35%,100% 100%,0 100%)}.eyebrow{font-family:monospace;font-size:10px;letter-spacing:.2em}.intro h1{margin:24px 0 26px;font-size:clamp(42px,6.7vw,82px);line-height:1.12;font-weight:400}.cut-word{display:flex;align-items:center;width:max-content;white-space:nowrap}.cut-word+.cut-word{margin-top:10px;margin-left:9px}.cut{position:relative;display:inline-flex;align-items:center;justify-content:center;background:#f8f3e5;color:#20211c;padding:.015em .09em .035em;margin-right:.018em;box-shadow:2px 3px 1px #271f2528;line-height:1;transform:rotate(-4deg);font-family:Impact,"Arial Narrow",sans-serif;font-weight:900}.c1{font-family:Georgia,"PMingLiU",serif;font-weight:400;transform:rotate(3deg) translateY(-.09em);background:#e9e0cc}.c2{font-family:"Arial Black",sans-serif;font-size:.87em;transform:rotate(-6deg) translateY(.06em)}.c3{font-family:Georgia,serif;transform:rotate(4deg);font-weight:900;padding:.04em .045em}.c4{transform:rotate(-2deg) translateY(-.04em);background:#efe8d7}.c5{font-family:Georgia,serif;font-weight:400;transform:rotate(6deg) translateY(.03em)}.c6{transform:rotate(-5deg);font-family:"Arial Black",sans-serif;font-size:.94em}.hero-caption{margin:0;font-size:clamp(17px,2vw,21px);font-weight:700;line-height:1.8;letter-spacing:.08em}.hero-small{margin:7px 0 0;color:#f2d8bf;font-size:12px;line-height:1.8;letter-spacing:.07em}.hero-art{position:relative;padding:12px 0 6px}.cake-print{position:relative;background:#f4eacb;padding:15px 12px 12px;transform:rotate(6deg);box-shadow:5px 8px 0 #361d2329;max-width:310px;margin:auto}.cake-print:before{content:"";position:absolute;z-index:1;top:-13px;left:calc(50% - 45px);width:90px;height:29px;background:repeating-linear-gradient(90deg,#d3c29ba8 0 6px,#dccdabcf 7px 8px);transform:rotate(-12deg)}.cake-print svg{width:100%;display:block}.print-caption{font-family:Georgia,serif;font-style:italic;color:#3f4433;text-align:center;font-size:19px;margin:0 0 3px}.scribble{position:relative;font-size:13px;line-height:1.6;color:#fff3d7;text-align:center;margin:23px 0 0;transform:rotate(-4deg)}.star{position:absolute;color:#ead285;font-size:54px;line-height:1;z-index:2;pointer-events:none}.star-one{right:-22px;top:-4px;transform:rotate(13deg)}.star-two{left:-20px;bottom:30px;font-size:36px;transform:rotate(-12deg)}.section-heading{display:flex;justify-content:space-between;align-items:center;margin:0 3px 22px}.section-heading h2{font-size:16px;margin:0;font-weight:500;letter-spacing:.13em}.section-heading span{font-family:Georgia,serif;font-style:italic;color:#766b57;font-size:14px}.people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start}.person-card{position:relative;background:var(--paper);padding:25px 27px 23px;box-shadow:3px 5px 0 #392d1e13;border:1px solid #d5c7ab;transform:rotate(-.6deg)}.person-card:before{content:"";position:absolute;width:90px;height:23px;background:#cdbd9785;top:-12px;left:calc(50% - 45px);transform:rotate(-5deg);border-left:2px dotted #b4a58355;border-right:2px dotted #b4a58355}.xuan{background:#edf0e2;transform:rotate(.7deg)}.xuan:before{background:#a8b79b90;transform:rotate(6deg)}.card-topline{display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--line);font:9px monospace;letter-spacing:.1em;color:#766b57}.name-row{display:flex;align-items:center;justify-content:space-between;min-height:107px;padding:21px 4px 17px}.person-name{font-size:57px}.person-name .cut{background:#303128;color:#faf6e9;padding:.11em .12em;font-family:"Microsoft JhengHei",sans-serif}.person-name .c1{background:#b7472f;font-family:"PMingLiU",Georgia,serif}.xuan .person-name{font-size:55px}.xuan .person-name .cut{font-family:Georgia,serif;padding:.06em .10em}.xuan .person-name .c0{background:#45654f}.xuan .person-name .c1{background:#d4a445;color:#252c21}.xuan .person-name .c2{font-family:Impact,sans-serif}.name-note{font-size:12px;color:#847361;transform:rotate(7deg);line-height:1.7;text-align:center}.keepsake{min-height:150px;display:grid;align-items:center;margin:0 0 21px}.memory-link{display:grid;grid-template-columns:73px 1fr;align-items:center;gap:14px;text-decoration:none;background:#e9dbc0;border:1px solid #d4bc94;padding:12px 13px;transform:rotate(-1.2deg);transition:transform .2s,box-shadow .2s;position:relative}.memory-link:after{content:"✦";position:absolute;right:9px;top:3px;color:#b7472f;font-size:23px}.memory-link:hover{transform:rotate(0) translateY(-3px);box-shadow:3px 5px 0 #66513620}.memory-link:focus-visible{outline:3px solid var(--red);outline-offset:6px}.memory-art{width:73px;height:85px;display:block;padding:4px 4px 13px;background:#fffdf6;box-shadow:1px 3px 4px #5b463426;transform:rotate(-6deg)}.memory-label{display:block;font:8px monospace;letter-spacing:.08em;color:#725d41;margin-bottom:7px}.memory-title{display:block;font-size:17px;font-weight:700;line-height:1.5}.memory-caption{display:block;font-size:11px;line-height:1.8;margin-top:4px;color:#705e49}.memory-cta{display:block;font-size:11px;font-weight:700;color:#983d28;margin-top:7px;line-height:1.6}.cake-ticket{min-height:125px;display:flex;gap:13px;align-items:center;border:1px solid #a5b69c;background:#e1e7d0;padding:15px 11px;transform:rotate(1deg)}.ticket-flower{font-size:53px;color:#49664b}.cake-ticket strong{font-size:20px}.ticket-edge{margin-left:auto;border-left:1px dashed #8c9d7a;padding-left:11px;font:900 12px/1.35 Georgia,serif;letter-spacing:.07em;color:#4b684e}.person-card h2{font-size:20px;font-weight:700;margin:0 0 8px;line-height:1.5}.lead{font-size:12px;line-height:1.7;color:var(--muted);margin:0}.countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:19px 0}.time-card{background:#fffcf3;border:1px solid #d8cdb9;text-align:center;padding:13px 3px 10px;box-shadow:1px 3px 0 #bba98b29}.time-card:nth-child(2){transform:rotate(2deg)}.time-card:nth-child(3){transform:rotate(-2deg)}.time-value{font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,3.6vw,47px);line-height:1.05;font-variant-numeric:tabular-nums;letter-spacing:-.05em;font-weight:700}.time-label{font-size:10px;margin-top:8px;color:#776d5c;letter-spacing:.12em}.target{display:flex;flex-wrap:wrap;gap:6px 12px}.chip{font:10px/1.8 monospace;color:#776b58}.card-aside{font-size:12px;line-height:1.9;margin:20px 0 18px}.card-aside em{font-style:normal;color:#937555}.milestone{border-top:1px dashed #c7bda6;padding-top:17px;display:flex;align-items:center;gap:14px}.milestone-number{font-family:Georgia,serif;font-style:italic;font-size:34px;line-height:1;border:1px solid #b28f6c;border-radius:50%;width:51px;height:51px;display:grid;place-items:center;color:#986d48;transform:rotate(-10deg);flex-shrink:0}.milestone h3{font-size:11px;font-weight:700;margin:0 0 5px}.milestone p{font-size:10px;line-height:1.8;color:#766b59;margin:0}.birthday-badge{display:none;padding:20px 10px;margin-top:18px;background:#e8ce83;border:1px dashed #a6793c;text-align:center;font-size:16px;line-height:1.8}.birthday-mode .countdown{display:none}.birthday-mode .birthday-badge{display:block}.page-footer{display:flex;justify-content:space-between;gap:14px;align-items:center;border-top:1px solid #a7987d;padding:19px 0 0;margin-top:36px;color:#786c58;font-size:10px;line-height:1.8}.footer-script{font-family:Georgia,serif;font-style:italic;font-size:19px;color:#554833}.footer-heart{color:var(--red)}
+@media(min-width:1250px){.intro h1{font-size:86px}}@media(max-width:1000px){.page{padding:22px 24px}.intro{padding:36px 30px;gap:20px}.intro h1{font-size:6.7vw}.person-card{padding:23px 20px}.name-note{font-size:10px}.person-name{font-size:49px}.xuan .person-name{font-size:47px}.memory-title{font-size:14px}.memory-link{gap:10px;padding:11px 9px}.memory-label{font-size:7px}.ticket-edge{display:none}}@media(max-width:720px){.page{padding:16px 20px 24px}.masthead{font-size:11px;letter-spacing:.1em}.masthead span{font-size:8px}.intro{grid-template-columns:1fr;padding:32px 25px 29px;gap:24px;margin:20px 0 30px}.intro h1{font-size:clamp(38px,10vw,69px);margin:25px 0}.hero-copy{position:relative;z-index:2}.hero-caption{font-size:16px}.hero-small{font-size:11px}.hero-art{max-width:240px;justify-self:center;width:100%;padding-top:0}.cake-print{max-width:210px;padding:9px}.cake-print svg{height:185px}.print-caption{font-size:15px}.scribble{margin-top:19px;font-size:11px}.star-one{right:-5px;font-size:42px}.star-two{left:-3px;font-size:30px}.section-heading h2{font-size:14px}.section-heading span{font-size:11px}.people{grid-template-columns:1fr;gap:32px}.person-card{padding:23px 23px;transform:rotate(-.5deg)}.xuan{transform:rotate(.5deg)}.person-name{font-size:54px}.xuan .person-name{font-size:53px}.name-note{font-size:12px}.memory-title{font-size:16px}.memory-label{font-size:8px}.memory-link{padding:12px;gap:14px}.keepsake{min-height:135px;margin-bottom:19px}.time-value{font-size:41px}.ticket-edge{display:block}.page-footer{flex-direction:column;text-align:center;gap:8px;margin-top:30px}}@media(max-width:370px){.page{padding-left:14px;padding-right:14px}.intro{padding:29px 20px}.person-card{padding:22px 17px}.name-note{font-size:10px}.memory-title{font-size:14px}.memory-label{font-size:7px}.memory-link{gap:9px;padding:10px}.time-value{font-size:35px}.ticket-edge{display:none}.masthead span{letter-spacing:0}}@media(prefers-reduced-motion:reduce){.memory-link{transition:none}}
+</style></head><body><main class="page">
+<div class="masthead"><b>SABRINA & XUAN</b><span>A LITTLE OLDER, A LOT MORE US.</span></div>
+<header class="intro"><div class="hero-copy"><div class="eyebrow">✳ &nbsp; 給我們的每一歲 / A BIRTHDAY SCRAPBOOK</div><h1 aria-label="Happy Birthday"><span class="cut-word " aria-hidden="true"><span class="cut c0">H</span><span class="cut c1">A</span><span class="cut c2">p</span><span class="cut c3">P</span><span class="cut c4">Y</span></span><span class="cut-word " aria-hidden="true"><span class="cut c0">B</span><span class="cut c1">i</span><span class="cut c2">R</span><span class="cut c3">t</span><span class="cut c4">h</span><span class="cut c5">D</span><span class="cut c6">a</span><span class="cut c0">Y</span></span></h1><p class="hero-caption">長大可以慢慢來，蛋糕請準時。</p><p class="hero-small">兩個生日都要記，兩份蛋糕都要吃。<br>認真記得生日，不認真面對年齡。</p></div><div class="hero-art"><span class="star star-one" aria-hidden="true">★</span><div class="cake-print"><svg viewBox="0 0 320 300" role="img" aria-label="戴著派對帽、笑得有點白爛的生日蛋糕">
+ <path d="M34 262Q158 278 287 258L278 273Q155 292 43 276Z" fill="#496b57"/>
+ <path d="M69 154L258 151L263 252Q170 280 63 248Z" fill="#e9a4ad" stroke="#342e28" stroke-width="3"/>
+ <path d="M68 186L258 184M68 217L262 217" fill="none" stroke="#b75960" stroke-width="3" stroke-dasharray="5 8"/>
+ <ellipse cx="163" cy="153" rx="95" ry="27" fill="#fff9df" stroke="#342e28" stroke-width="3"/>
+ <path d="M69 153Q76 175 89 169Q100 199 112 173Q131 189 140 174Q160 193 174 175Q196 190 204 171Q223 187 234 168Q254 178 258 152" fill="#fff9df" stroke="#342e28" stroke-width="3"/>
+ <path d="M103 142L99 97L111 96L114 142M208 142L211 95L223 97L219 144" fill="#6d9079" stroke="#342e28" stroke-width="2"/>
+ <path d="M104 91Q87 78 103 62Q119 82 104 91M218 91Q202 80 220 62Q235 83 218 91" fill="#e8b44b" stroke="#342e28" stroke-width="2"/>
+ <path d="M128 128L167 39L193 128Z" fill="#c95838" stroke="#342e28" stroke-width="3"/>
+ <path d="M144 92L179 88M135 111L186 108" stroke="#f4c96b" stroke-width="8"/>
+ <circle cx="168" cy="37" r="9" fill="#efd48a" stroke="#342e28" stroke-width="2"/>
+ <ellipse cx="134" cy="211" rx="5" ry="8" fill="#342e28"/><ellipse cx="194" cy="211" rx="5" ry="8" fill="#342e28"/>
+ <path d="M153 225Q167 244 183 224" fill="#fff9df" stroke="#342e28" stroke-width="3" stroke-linecap="round"/>
+ <ellipse cx="117" cy="223" rx="10" ry="5" fill="#cf7374"/><ellipse cx="212" cy="223" rx="10" ry="5" fill="#cf7374"/>
+ <path d="M46 107l4-14 4 14 14 4-14 4-4 14-4-14-14-4Z M274 191l4-12 3 12 13 3-13 4-3 12-4-12-12-4Z" fill="#d3a13f"/>
+ <path d="M29 204q-16-21 1-18q14-14 14 2q-2 9-15 16Z" fill="#bd4b32"/>
+</svg><p class="print-caption">stay sweet. stay a little silly.</p></div><span class="star star-two" aria-hidden="true">★</span><p class="scribble">↖ 別催，我有在長大。<br>只是速度比較有自己的想法。</p></div></header>
+<div class="section-heading"><h2>我們的生日剪貼簿</h2><span>two birthdays, twice the cake.</span></div><div class="people"><section class="person-card sabrina" id="sabrina-card" aria-labelledby="sabrina-title">
+ <div class="card-topline"><span>THE BIRTHDAY CLUB</span><span>No. 01 / 05 / 18</span></div>
+ <div class="name-row"><div class="person-name" aria-label="恬恬"><span class="cut-word " aria-hidden="true"><span class="cut c0">恬</span><span class="cut c1">恬</span></span></div><span class="name-note">壽星本人<br>請被好好慶祝 ↙</span></div>
+ <div class="keepsake"><a class="memory-link" href="https://taitung.xuan.tw/" target="_blank" rel="noopener noreferrer" aria-label="那年台東，我有到場！開啟恬恬的台東慶生回憶網站（新分頁）"><svg class="memory-art" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
               <rect width="100" height="100" rx="5" fill="#fce7be" />
               <circle cx="74" cy="24" r="14" fill="#f6b377" />
               <path d="M0 57 Q25 45 50 57 T100 57 V100 H0Z" fill="#b3d5cf" />
@@ -409,63 +39,26 @@
               <path d="M44 67 Q49 72 54 67" fill="none" stroke="#795346" stroke-width="2" stroke-linecap="round" />
               <path d="M12 19 C5 11 0 22 12 28 C24 22 19 11 12 19Z" fill="#df90a2" />
               <path d="M91 43 l-2 5 -5 2 5 2 2 5 2-5 5-2-5-2Z" fill="#fff9e9" />
-            </svg>
-            <span class="memory-copy">
-              <span class="memory-label">恬恬慶生・台東完整版</span>
-              <span class="memory-title">那年台東，我有到場！</span>
-              <span class="memory-caption">祝福有送到，人也有親自跑一趟 XD</span>
-              <span class="memory-cta">29 張照片＋17 支影片，一次回味 ↗</span>
-            </span>
-          </a>
-          <p class="memory-footnote">歡迎圍觀，小心被可愛到。♡</p>
-          <div class="card-sticker">壽星本人，請被好好慶祝 🌷</div><br />
-          <div class="eyebrow">Sabrina · 05 / 18</div>
-          <h2 id="sabrina-title">恬恬</h2>
-          <p class="lead" id="sabrina-lead">下一個生日，值得再期待一次。</p>
-          <div class="countdown" role="timer" aria-label="恬恬的生日倒數" aria-live="off">
-    <div class="time-card"><div class="time-value" id="sabrina-days">—</div><div class="time-label">天</div></div>
-    <div class="time-card"><div class="time-value" id="sabrina-hours">—</div><div class="time-label">小時</div></div>
-    <div class="time-card"><div class="time-value" id="sabrina-minutes">—</div><div class="time-label">分鐘</div></div>
-    <div class="time-card"><div class="time-value" id="sabrina-seconds">—</div><div class="time-label">秒</div></div>
-  </div>
-          <div class="target">
-            <span class="chip">生日：1986/05/18</span>
-            <span class="chip" id="sabrina-next">下一次生日：05/18</span>
-          </div>
-          <div class="birthday-badge" id="sabrina-celebration" role="status">送妳一朵可愛的小花，還有今天專屬的亮晶晶。<br />願新的一歲，溫柔、閃亮、被好好喜歡。🌸</div>
-          <p class="card-aside">願妳每天都被溫柔以待。<br />蛋糕上的蠟燭太多，就分兩批吹。🕯️</p>
-          <div class="milestone">
-            <h3>恬恬的 40 歲里程碑 🌸</h3>
-            <p id="sabrina-milestone">2026/05/18 · 40 歲生日</p>
-          </div>
-        </section>
-
-        <section class="hero person-card xuan" id="xuan-card" aria-labelledby="xuan-title">
-          <div class="card-sticker">製作人順便蹭個版面 XD 🫶</div><br />
-          <div class="eyebrow">Xuan · 11 / 04</div>
-          <h2 id="xuan-title">Xuan</h2>
-          <p class="lead" id="xuan-lead">我的生日，也一起倒數 XD</p>
-          <div class="countdown" role="timer" aria-label="Xuan 的生日倒數" aria-live="off">
-    <div class="time-card"><div class="time-value" id="xuan-days">—</div><div class="time-label">天</div></div>
-    <div class="time-card"><div class="time-value" id="xuan-hours">—</div><div class="time-label">小時</div></div>
-    <div class="time-card"><div class="time-value" id="xuan-minutes">—</div><div class="time-label">分鐘</div></div>
-    <div class="time-card"><div class="time-value" id="xuan-seconds">—</div><div class="time-label">秒</div></div>
-  </div>
-          <div class="target">
-            <span class="chip">生日：1988/11/04</span>
-            <span class="chip" id="xuan-next">下一次生日：11/04</span>
-          </div>
-          <div class="birthday-badge" id="xuan-celebration" role="status">今天輪到我當壽星 XD<br />願新的一歲，多一點快樂，多一點喜歡的日常。🎂</div>
-          <p class="card-aside">願我繼續可愛，偶爾白爛。<br />成熟的部分，明年再說。🐣</p>
-          <div class="milestone">
-            <h3>Xuan 的 40 歲里程碑 🎂</h3>
-            <p id="xuan-milestone">2028/11/04 · 40 歲生日</p>
-          </div>
-        </section>
-      </div>
-
-      <footer class="page-footer">認真記得生日，不認真面對年齡。♡<br />以台灣時間（UTC+8）準時長大，耍廢不限時。</footer>
-    </main>    <script>
+            </svg><span class="memory-copy"><span class="memory-label">A LITTLE TRIP, A BIG MEMORY</span><span class="memory-title">那年台東，我有到場！</span><span class="memory-caption">祝福有送到，人也有親自跑一趟 XD</span><span class="memory-cta">29 張照片＋17 支影片，一次回味 ↗</span></span></a></div>
+ <h2 id="sabrina-title">恬恬的生日倒數</h2><p class="lead" id="sabrina-lead">下一個生日，值得再期待一次。</p>
+ <div class="countdown" role="timer" aria-label="恬恬的生日倒數" aria-live="off"><div class="time-card"><div class="time-value" id="sabrina-days">—</div><div class="time-label">天</div></div><div class="time-card"><div class="time-value" id="sabrina-hours">—</div><div class="time-label">小時</div></div><div class="time-card"><div class="time-value" id="sabrina-minutes">—</div><div class="time-label">分鐘</div></div><div class="time-card"><div class="time-value" id="sabrina-seconds">—</div><div class="time-label">秒</div></div></div>
+ <div class="target"><span class="chip">生日：1986/05/18</span><span class="chip" id="sabrina-next">下一次生日：05 / 18</span></div>
+ <div class="birthday-badge" id="sabrina-celebration" role="status">今天妳最大，蛋糕也是妳的！<br>願新的一歲，快樂多一點，煩惱少一點。♡</div>
+ <p class="card-aside">願妳每天都被溫柔以待。<br><em>蠟燭太多的話，我們就分兩批吹。</em></p>
+ <div class="milestone"><span class="milestone-number" aria-hidden="true">40</span><div><h3>恬恬的 40 歲里程碑</h3><p id="sabrina-milestone">2026/05/18 · 40 歲生日</p></div></div>
+</section><section class="person-card xuan" id="xuan-card" aria-labelledby="xuan-title">
+ <div class="card-topline"><span>THE BIRTHDAY CLUB</span><span>No. 02 / 11 / 04</span></div>
+ <div class="name-row"><div class="person-name" aria-label="Xuan"><span class="cut-word " aria-hidden="true"><span class="cut c0">X</span><span class="cut c1">u</span><span class="cut c2">a</span><span class="cut c3">n</span></span></div><span class="name-note">製作人硬要<br>蹭個版面 ↙</span></div>
+ <div class="keepsake"><div class="cake-ticket"><span class="ticket-flower" aria-hidden="true">✿</span><span><span class="memory-label">ONE MORE SLICE, PLEASE</span><strong>我也要一份蛋糕。</strong><span class="memory-caption">成熟的部分，明年再說。<br>今年先負責可愛，偶爾白爛。</span></span><span class="ticket-edge" aria-hidden="true">CAKE<br>FOR<br>ME!</span></div></div>
+ <h2 id="xuan-title">Xuan的生日倒數</h2><p class="lead" id="xuan-lead">下一個生日，值得再期待一次。</p>
+ <div class="countdown" role="timer" aria-label="Xuan的生日倒數" aria-live="off"><div class="time-card"><div class="time-value" id="xuan-days">—</div><div class="time-label">天</div></div><div class="time-card"><div class="time-value" id="xuan-hours">—</div><div class="time-label">小時</div></div><div class="time-card"><div class="time-value" id="xuan-minutes">—</div><div class="time-label">分鐘</div></div><div class="time-card"><div class="time-value" id="xuan-seconds">—</div><div class="time-label">秒</div></div></div>
+ <div class="target"><span class="chip">生日：1988/11/04</span><span class="chip" id="xuan-next">下一次生日：11 / 04</span></div>
+ <div class="birthday-badge" id="xuan-celebration" role="status">今天輪到我當壽星 XD<br>願新的一歲，快樂多一點，煩惱少一點。♡</div>
+ <p class="card-aside">願我繼續可愛，偶爾白爛。<br><em>年紀是數字，蛋糕是實體。</em></p>
+ <div class="milestone"><span class="milestone-number" aria-hidden="true">40</span><div><h3>Xuan的 40 歲里程碑</h3><p id="xuan-milestone">2028/11/04 · 40 歲生日</p></div></div>
+</section></div>
+<footer class="page-footer"><span class="footer-script">Made with love & a little nonsense. <span class="footer-heart">♡</span></span><span>以台灣時間（UTC+8）準時長大<br>耍廢不限時，生日要準時。</span></footer>
+</main><script>
       const people = [
         { id: 'sabrina', name: '恬恬', year: 1986, month: 5, day: 18 },
         { id: 'xuan', name: 'Xuan', year: 1988, month: 11, day: 4 }
@@ -514,6 +107,4 @@
       document.addEventListener('visibilitychange', () => {
         if (!document.hidden) renderCountdown();
       });
-    </script>
-  </body>
-</html>
+    </script></body></html>

@@ -1,6 +1,6 @@
 # sabrina-countdown
 
-A shared birthday countdown for Sabrina (恬恬) and Xuan, preserving the original flower and pastel design.
+A shared birthday countdown for Sabrina (恬恬) and Xuan, with a handmade editorial birthday scrapbook design.
 
 ## Birthdays
 
@@ -11,7 +11,7 @@ A shared birthday countdown for Sabrina (恬恬) and Xuan, preserving the origin
 - Desktop shows the cards side by side; mobile stacks them vertically.
 - Sabrina's card links to `https://taitung.xuan.tw/` in a new tab, without requiring sign-in.
 - The full album contains 29 photographs and 17 videos (46 memories). Original photo 41 must remain excluded at Sabrina's request. The `/2026/` family edition also omits all videos.
-- The design uses warm paper colors, a birthday postcard, smiling flower, and playful birthday copy.
+- The design uses brick-red textured paper, mixed-type magazine cutout lettering, cream and sage birthday cards, an original hand-drawn cake, taped keepsakes, and playful birthday copy. All artwork is inline SVG/CSS and lettering is live accessible text; no external asset or font requests.
 
 ## Deploy
 
