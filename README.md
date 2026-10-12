@@ -4,9 +4,9 @@ A shared birthday countdown for Sabrina (恬恬) and Xuan, with a handmade edito
 
 ## Birthdays
 
-- Sabrina: 1986-05-18; 40th birthday: 2026-05-18. From that milestone her playful display age reverses: 39 in 2027, 38 in 2028, and one year younger per birthday. The actual birth date and next-birthday date stay unchanged. Xuan ages normally.
+- Sabrina: 1986-05-18; 40th birthday: 2026-05-18. From that milestone her age clock continuously counts down from 40 to zero on 2066-05-18, showing remaining calendar years, days, hours, minutes and seconds. It runs through birthdays, handles leap years, and stays at zero afterwards. The actual birth date and next-birthday date stay unchanged. Xuan ages normally.
 - Xuan: 1988-11-04; 40th birthday: 2028-11-04.
-- Each card counts down to the person's next birthday. Celebration lasts for the whole birthday in Taiwan (UTC+8), then rolls over to the next year.
+- Xuan counts down to his next birthday. Sabrina counts down to age zero, with her next birthday listed separately. Celebration lasts for the whole birthday in Taiwan (UTC+8); Sabrina's reverse-age clock remains visible throughout.
 - The 40th birthday milestone remains visible after it has passed.
 - Desktop shows the cards side by side; mobile stacks them vertically.
 - Sabrina's card links to `https://taitung.xuan.tw/` in a new tab, without requiring sign-in.

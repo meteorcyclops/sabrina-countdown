@@ -1,4 +1,4 @@
-@font-face{font-family:"Birthday Serif";src:url("assets/fonts/birthday-serif.woff2?v=reverse-age") format("woff2");font-style:normal;font-weight:400 800;font-display:swap}
+@font-face{font-family:"Birthday Serif";src:url("assets/fonts/birthday-serif.woff2?v=reverse-clock") format("woff2");font-style:normal;font-weight:400 800;font-display:swap}
 @font-face{font-family:"Birthday Cutout";src:url("assets/fonts/birthday-cutout.woff2") format("woff2");font-style:normal;font-weight:800;font-display:swap}
 :root{--type-copy:"Birthday Serif","Noto Serif TC",serif;--type-cutout:"Birthday Cutout",sans-serif}
 /* A small editorial universe: paper, ink, a little happy disorder. */
@@ -133,3 +133,9 @@ h1{font-size:clamp(72px,8.65vw,126px);letter-spacing:-.055em}
 .asterisk-icon{display:inline-block;width:1em;height:1em;vertical-align:-.12em;fill:currentColor;flex:none}
 .brand-star,.confetti-button>span,.ticket-flower{display:inline-flex;flex-shrink:0;line-height:1}
 .art-star,.closing-flower{display:block;width:1em;height:1em}
+
+/* The reverse-age clock runs continuously, including the birthday itself. */
+.sabrina.birthday-mode .countdown{display:block}
+.sabrina .clock-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.sabrina .clock-dot,.sabrina .time-zone{display:none}
+.sabrina .clock-unit{gap:5px}
