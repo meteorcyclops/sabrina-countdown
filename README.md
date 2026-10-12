@@ -9,8 +9,8 @@ A shared birthday countdown for Sabrina (恬恬) and Xuan, preserving the origin
 - Each card counts down to the person's next birthday. Celebration lasts for the whole birthday in Taiwan (UTC+8), then rolls over to the next year.
 - The 40th birthday milestone remains visible after it has passed.
 - Desktop shows the cards side by side; mobile stacks them vertically.
-- Sabrina's card links to the Taitung memories Site in a new tab. The owner has made the album public so visitors can view it without signing in.
-- The link selects the complete saved Taitung edition, version 3: 30 photographs and 17 videos (47 memories). Later main-site versions omit photo 41; the `/2026/` family edition also omits all videos.
+- Sabrina's card links to `https://taitung.xuan.tw/` in a new tab, without requiring sign-in.
+- The full album contains 29 photographs and 17 videos (46 memories). Original photo 41 must remain excluded at Sabrina's request. The `/2026/` family edition also omits all videos.
 - The design uses warm paper colors, a birthday postcard, smiling flower, and playful birthday copy.
 
 ## Deploy
