@@ -32,14 +32,18 @@
   const celebrate = document.querySelector('.confetti-button');
   const layer = document.getElementById('confetti-layer');
   const status = document.getElementById('celebrate-status');
-  const wishes = ['快樂已送達。今天也值得慶祝！ ♡', '蛋糕可以晚點吃，快樂現在就要。', '恭喜！又多收集了一點快樂。 ✳'];
+  const wishes = ['快樂已送達。今天也值得慶祝！ ♡', '蛋糕可以晚點吃，快樂現在就要。', '恭喜！又多收集了一點快樂。'];
   let count = 0, hideToast, cleanConfetti, lastClick = 0;
   celebrate.addEventListener('click', () => {
     if (Date.now() - lastClick < 800) return;
     lastClick = Date.now();
     clearTimeout(hideToast);
     clearTimeout(cleanConfetti);
-    status.textContent = wishes[count++ % wishes.length];
+    const wishIndex = count++ % wishes.length;
+    status.textContent = wishes[wishIndex];
+    if (wishIndex === 2) {
+      status.append(' ', celebrate.querySelector('.asterisk-icon').cloneNode(true));
+    }
     status.classList.add('visible');
     layer.replaceChildren();
     if (!motion.matches) {
