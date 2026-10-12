@@ -22,3 +22,10 @@ A shared birthday countdown for Sabrina (恬恬) and Xuan, with a handmade edito
 ## Deploy
 
 Deployed to GitHub Pages and mapped to `sabrina.xuan.tw`.
+
+## Live age and performance
+
+- Xuan shows actual calendar age from 1988-11-04 00:00 Taiwan time (birth time was not supplied): full years plus elapsed days/hours/minutes/seconds. Both clocks stay visible on birthdays.
+- Clocks update only changed text, align updates to seconds, and pause while the tab is hidden.
+- The cake has 480/840/1120-pixel WebP variants with matching responsive desktop preload; mobile avoids competing image preloads.
+- A 2 KB pre-rendered grain tile replaces the full-screen SVG noise filter. The cover renders immediately without opacity entrance delays; paper hover, tilt, confetti and notes remain.

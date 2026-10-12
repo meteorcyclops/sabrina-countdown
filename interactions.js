@@ -20,15 +20,6 @@
     print.style.setProperty('--ry', '0deg');
     print.style.setProperty('--rx', '0deg');
   });
-  if ('IntersectionObserver' in window && !motion.matches) {
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal-arrived');
-        observer.unobserve(entry.target);
-      }
-    }), {threshold: .08});
-    document.querySelectorAll('.section-heading, .person-card, .closing-note').forEach(el => observer.observe(el));
-  }
   const celebrate = document.querySelector('.confetti-button');
   const layer = document.getElementById('confetti-layer');
   const status = document.getElementById('celebrate-status');
