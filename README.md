@@ -10,6 +10,7 @@ A shared birthday countdown for Sabrina (恬恬) and Xuan, preserving the origin
 - The 40th birthday milestone remains visible after it has passed.
 - Desktop shows the cards side by side; mobile stacks them vertically.
 - Sabrina's card links to the Taitung memories Site in a new tab. The owner has made the album public so visitors can view it without signing in.
+- The link selects the complete saved Taitung edition, version 3: 30 photographs and 17 videos (47 memories). Later main-site versions omit photo 41; the `/2026/` family edition also omits all videos.
 - The design uses warm paper colors, a birthday postcard, smiling flower, and playful birthday copy.
 
 ## Deploy
