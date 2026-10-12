@@ -1,4 +1,4 @@
-@font-face{font-family:"Birthday Serif";src:url("assets/fonts/birthday-serif.woff2") format("woff2");font-style:normal;font-weight:400 800;font-display:swap}
+@font-face{font-family:"Birthday Serif";src:url("assets/fonts/birthday-serif.woff2?v=reverse-age") format("woff2");font-style:normal;font-weight:400 800;font-display:swap}
 @font-face{font-family:"Birthday Cutout";src:url("assets/fonts/birthday-cutout.woff2") format("woff2");font-style:normal;font-weight:800;font-display:swap}
 :root{--type-copy:"Birthday Serif","Noto Serif TC",serif;--type-cutout:"Birthday Cutout",sans-serif}
 /* A small editorial universe: paper, ink, a little happy disorder. */
