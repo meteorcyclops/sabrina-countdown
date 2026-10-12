@@ -7,12 +7,12 @@
     <title>恬恬 & Xuan｜我們的生日倒數</title>
     <style>
       :root {
-        --bg: #fff8f7;
-        --bg-2: #fff1ee;
+        --bg: #fffaf0;
+        --bg-2: #fff0e9;
         --card: rgba(255, 255, 255, 0.76);
         --line: rgba(110, 70, 70, 0.12);
         --text: #3b2c2c;
-        --muted: #8a6d6d;
+        --muted: #806161;
         --accent: #e58c8c;
         --accent-2: #c96f93;
         --leaf: #84c6a3;
@@ -24,7 +24,7 @@
         margin: 0;
         min-height: 100vh;
         color: var(--text);
-        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: "Microsoft JhengHei", "PingFang TC", "Segoe UI", sans-serif;
         background:
           radial-gradient(circle at top left, rgba(229, 140, 140, 0.22), transparent 28%),
           radial-gradient(circle at 85% 8%, rgba(201, 111, 147, 0.16), transparent 24%),
@@ -320,6 +320,43 @@
         .person-card .lead { min-height: 0; }
       }
       @media (prefers-reduced-motion: reduce) { .sparkle { animation: none; } }
+      /* Little paper keepsakes, warm pastels, and just enough birthday nonsense. */
+      body { background:
+        radial-gradient(circle, rgba(185, 125, 105, .12) 1px, transparent 1px) 0 0 / 22px 22px,
+        radial-gradient(ellipse at top left, #ffe1e4, transparent 50%),
+        linear-gradient(180deg, var(--bg), var(--bg-2)); }
+      .hero { border: 1px solid #efd9d1; background: rgba(255, 253, 248, .94); }
+      .intro { padding-top: 24px; }
+      .intro h1 { margin-top: 16px; }
+      .flower-center { background:
+        radial-gradient(ellipse at 20% 61%, #f4a29b 0 7%, transparent 8%),
+        radial-gradient(ellipse at 80% 61%, #f4a29b 0 7%, transparent 8%),
+        radial-gradient(circle at 35% 30%, #fff4a8, #ffc96b 70%); }
+      .flower-caption { position: relative; display: inline-block; margin: 0 auto 14px; padding: 8px 16px; border: 1px solid #ead6bb; border-radius: 16px 16px 16px 4px; background: #fff3d8; color: #87613c; font-size: 13px; transform: rotate(-3deg); }
+      .intro .eyebrow { font-size: 11px; color: #a26673; }
+      .person-card { overflow: hidden; border-top: 4px solid #e7a4bd; box-shadow: 0 12px 28px rgba(145, 105, 88, .1); }
+      .xuan { border-top-color: #a4c2bc; }
+      .card-sticker { display: inline-block; margin-bottom: 14px; padding: 7px 14px; border: 1px dashed #dca2b2; border-radius: 12px; background: #fff0f1; font-size: 12px; color: #915163; transform: rotate(-3deg); }
+      .xuan .card-sticker { background: #eef6e9; border-color: #a3bf9c; color: #557950; transform: rotate(3deg); }
+      .time-card { background: #fff9ed; border-color: #eadcc7; box-shadow: 0 3px 0 #f1e4d3; }
+      .xuan .time-card { background: #f3f8ef; border-color: #dce7d2; box-shadow: 0 3px 0 #e8eedf; }
+      .card-aside { margin: 20px 0 0; color: #92735a; font-size: 13px; line-height: 1.8; }
+      .memory-link { position: relative; display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 14px; align-items: center; margin: 4px 0 28px; padding: 15px 14px; border: 1px solid #e8ccb1; border-radius: 18px; background: #fff3dd; color: #694a3d; text-align: left; text-decoration: none; box-shadow: 0 5px 0 #f0dfca; transform: rotate(-1deg); transition: transform .2s, box-shadow .2s; }
+      .memory-link::before { content: ''; position: absolute; width: 68px; height: 20px; left: calc(50% - 34px); top: -10px; border: 1px solid rgba(209, 164, 136, .22); background: rgba(245, 214, 181, .75); transform: rotate(4deg); }
+      .memory-link:hover { transform: rotate(0deg) translateY(-3px); box-shadow: 0 8px 0 #f0dfca; }
+      .memory-link:active { transform: translateY(2px); box-shadow: 0 2px 0 #f0dfca; }
+      .memory-link:focus-visible { outline: 3px solid #9a5573; outline-offset: 6px; }
+      .memory-art { display: block; width: 92px; height: 98px; padding: 5px 5px 16px; border: 1px solid #dfcfc3; background: white; box-shadow: 0 3px 8px rgba(130, 94, 67, .1); transform: rotate(-5deg); }
+      .memory-copy { min-width: 0; }
+      .memory-label { display: block; margin-bottom: 7px; color: #986044; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+      .memory-title { display: block; font-size: 18px; font-weight: 800; line-height: 1.5; }
+      .memory-caption { display: block; margin-top: 5px; color: #89694f; font-size: 12px; line-height: 1.7; }
+      .memory-cta { display: block; margin-top: 9px; color: #8c4860; font-size: 12px; font-weight: 700; line-height: 1.6; }
+      .memory-footnote { margin: -16px 0 22px; font-size: 11px; color: #897160; line-height: 1.7; }
+      .milestone { border-top-style: dashed; }
+      .page-footer { padding-top: 8px; }
+      @media (max-width: 380px) { .memory-link { grid-template-columns: 72px minmax(0, 1fr); gap: 10px; padding: 14px 10px; } .memory-art { width: 72px; height: 84px; } .memory-title { font-size: 16px; } }
+      @media (prefers-reduced-motion: reduce) { .memory-link { transition: none; } }
     </style>
   </head>
   <body>
@@ -349,13 +386,39 @@
         </div>
 
 
+        <div class="flower-caption">別催，我有在長大。🌱</div>
         <div class="eyebrow">For Sabrina & Xuan</div>
         <h1>我們的生日倒數</h1>
-        <p class="lead">兩個生日，兩份期待。<br />一起數著日子，慢慢迎接下一歲。🌸</p>
+        <p class="lead">長大可以慢慢來，蛋糕請準時。<br />兩個生日都要記，兩份蛋糕都要吃。🎂</p>
       </header>
 
       <div class="people">
         <section class="hero person-card" id="sabrina-card" aria-labelledby="sabrina-title">
+          <a class="memory-link" href="https://taitung-memories-2026.meteorcyclops1104.chatgpt.site" target="_blank" rel="noopener noreferrer" aria-label="那年台東，我有到場！開啟恬恬的台東慶生回憶網站（新分頁）">
+            <svg class="memory-art" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+              <rect width="100" height="100" rx="5" fill="#fce7be" />
+              <circle cx="74" cy="24" r="14" fill="#f6b377" />
+              <path d="M0 57 Q25 45 50 57 T100 57 V100 H0Z" fill="#b3d5cf" />
+              <path d="M0 71 Q25 59 50 71 T100 71" fill="none" stroke="#e7f5ec" stroke-width="3" />
+              <path d="M0 91 Q28 74 57 88 T100 88 V100 H0Z" fill="#eed3a6" />
+              <rect x="27" y="43" width="43" height="32" rx="6" fill="#f6b8c2" stroke="#bb797e" stroke-width="1.5" />
+              <path d="M27 51 Q33 59 38 51 Q44 59 49 51 Q55 59 61 51 Q66 59 70 51 V44 Q48 35 27 44Z" fill="#fff9e9" />
+              <path d="M48 31 V43" stroke="#997f63" stroke-width="3" />
+              <path d="M48 20 Q38 32 48 33 Q57 31 48 20Z" fill="#ef9e68" />
+              <circle cx="40" cy="62" r="2" fill="#795346" /><circle cx="58" cy="62" r="2" fill="#795346" />
+              <path d="M44 67 Q49 72 54 67" fill="none" stroke="#795346" stroke-width="2" stroke-linecap="round" />
+              <path d="M12 19 C5 11 0 22 12 28 C24 22 19 11 12 19Z" fill="#df90a2" />
+              <path d="M91 43 l-2 5 -5 2 5 2 2 5 2-5 5-2-5-2Z" fill="#fff9e9" />
+            </svg>
+            <span class="memory-copy">
+              <span class="memory-label">恬恬慶生・台東小旅行</span>
+              <span class="memory-title">那年台東，我有到場！</span>
+              <span class="memory-caption">祝福有送到，人也有親自跑一趟 XD</span>
+              <span class="memory-cta">重播我們的台東回憶 ↗</span>
+            </span>
+          </a>
+          <p class="memory-footnote">我們的小相簿 · 限受邀帳號觀看</p>
+          <div class="card-sticker">壽星本人，請被好好慶祝 🌷</div><br />
           <div class="eyebrow">Sabrina · 05 / 18</div>
           <h2 id="sabrina-title">恬恬</h2>
           <p class="lead" id="sabrina-lead">下一個生日，值得再期待一次。</p>
@@ -370,6 +433,7 @@
             <span class="chip" id="sabrina-next">下一次生日：05/18</span>
           </div>
           <div class="birthday-badge" id="sabrina-celebration" role="status">送妳一朵可愛的小花，還有今天專屬的亮晶晶。<br />願新的一歲，溫柔、閃亮、被好好喜歡。🌸</div>
+          <p class="card-aside">願妳每天都被溫柔以待。<br />蛋糕上的蠟燭太多，就分兩批吹。🕯️</p>
           <div class="milestone">
             <h3>恬恬的 40 歲里程碑 🌸</h3>
             <p id="sabrina-milestone">2026/05/18 · 40 歲生日</p>
@@ -377,6 +441,7 @@
         </section>
 
         <section class="hero person-card xuan" id="xuan-card" aria-labelledby="xuan-title">
+          <div class="card-sticker">製作人順便蹭個版面 XD 🫶</div><br />
           <div class="eyebrow">Xuan · 11 / 04</div>
           <h2 id="xuan-title">Xuan</h2>
           <p class="lead" id="xuan-lead">我的生日，也一起倒數 XD</p>
@@ -391,6 +456,7 @@
             <span class="chip" id="xuan-next">下一次生日：11/04</span>
           </div>
           <div class="birthday-badge" id="xuan-celebration" role="status">今天輪到我當壽星 XD<br />願新的一歲，多一點快樂，多一點喜歡的日常。🎂</div>
+          <p class="card-aside">願我繼續可愛，偶爾白爛。<br />成熟的部分，明年再說。🐣</p>
           <div class="milestone">
             <h3>Xuan 的 40 歲里程碑 🎂</h3>
             <p id="xuan-milestone">2028/11/04 · 40 歲生日</p>
@@ -398,7 +464,7 @@
         </section>
       </div>
 
-      <footer class="page-footer">一人一個倒數，生日快樂也要一人一份。<br />以台灣時間（UTC+8）迎接生日。</footer>
+      <footer class="page-footer">認真記得生日，不認真面對年齡。♡<br />以台灣時間（UTC+8）準時長大，耍廢不限時。</footer>
     </main>    <script>
       const people = [
         { id: 'sabrina', name: '恬恬', year: 1986, month: 5, day: 18 },
