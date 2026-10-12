@@ -11,7 +11,11 @@ A shared birthday countdown for Sabrina (恬恬) and Xuan, with a handmade edito
 - Desktop shows the cards side by side; mobile stacks them vertically.
 - Sabrina's card links to `https://taitung.xuan.tw/` in a new tab, without requiring sign-in.
 - The full album contains 29 photographs and 17 videos (46 memories). Original photo 41 must remain excluded at Sabrina's request. The `/2026/` family edition also omits all videos.
-- The design uses brick-red textured paper, mixed-type magazine cutout lettering, cream and sage birthday cards, an original hand-drawn cake, taped keepsakes, and playful birthday copy. All artwork is inline SVG/CSS and lettering is live accessible text; no external asset or font requests.
+- The design uses an editorial cream canvas, oxblood magazine-cutout headings, sage paper layers, asymmetrical birthday cards, and an original AI-generated photographic cake collage. The WebP hero asset is 317 KB, self-hosted and preloaded; system fonts avoid third-party font requests.
+- Live countdown hierarchy emphasizes days, with a quieter hours/minutes/seconds strip. The dates and Taiwan midnight rollover are preserved.
+- A celebration button releases temporary paper confetti with a polite status announcement. Native details elements reveal personal birthday notes and work with the keyboard.
+- Progressive scroll reveals, hover paper lift, and pointer tilt respect reduced-motion preferences. Content remains visible and the notes/links usable if the enhancement script fails.
+- Responsive QA covers 320, 390, 768, 1024, and 1440 pixel widths. Focus states and a skip link support keyboard navigation.
 
 ## Deploy
 
